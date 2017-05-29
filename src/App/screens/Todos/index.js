@@ -20,8 +20,8 @@ const Todos = ({ lists, todos, addTodo, addList, toggleTodo, setFilter }) => {
         addTodo(todo)
         reset()
       }} />
-      <div className="">
-      <h1 className='f4 bold mw6 center'>Todos</h1>
+      <div className="mw6 center">
+      <span className='f4 bold'>Todos</span>
       <Filter {...{setFilter}} />
       </div>
       <TodoList {...{ todos, toggleTodo }} />

@@ -8,7 +8,6 @@
 
 import { combineReducers } from 'redux';
 import { createSelector } from 'reselect';
-
 import byId, * as fromById from './byId';
 import idsList, * as fromIdsList from './idsList';
 import status, * as fromStatus from './status';
