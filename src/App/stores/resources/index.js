@@ -29,33 +29,28 @@ export const getEntity = (type, id) => createSelector(
 )
 
 
-function getListSelection(object, state){
-  const ids = Object.keys(object);
-  const activeList = state.todos.filters.activeList;
-
-  if(activeList === 'all'){
-    return ids;
+function getSelection(type, state, object){
+  if(type !== 'todos'){
+    return Object.keys(object);
   }
+  const ids = Object.keys(object);
+  const activeFilter = state.filters.activeFilter;
+  const activeList = state.filters.activeList;
 
-  return ids.filter(function(id) {
+
+  const listIds = ids.filter(function(id) {
     const todo = object[id];
-    return todo.list === activeList;
+    return todo.listID === activeList;
   });
 
-}
 
-
-function getSelection(object, state){
-  const filter = state.todos.filters.activeFilter;
-  const listIds = getListSelection(object, state);
   return listIds.filter(function(id) {
     const todo = object[id];
-
-    if (filter === 'all') {
+    if (activeFilter === 'all') {
       return true;
-    } else if (filter == 'completed' && !!todo.completed) {
+    } else if (activeFilter === 'completed' && !!todo.completed) {
       return true;
-    } else if (filter == 'active' && !todo.completed) {
+    } else if (activeFilter === 'active' && !todo.completed) {
       return true
     } else {
       return false
@@ -67,7 +62,7 @@ function getSelection(object, state){
 // Get all items in a state of this reducer
 export const getEntities = (type) => createSelector(
   state => state,
-  state => getSelection(fromIdsList.getIds(state[type].byId), state),
+  state => getSelection(type, state, fromIdsList.getIds(state[type].byId)),
   (state, entitiesIds) => {
     if (entitiesIds) {
       return entitiesIds.map(id => fromById.getEntity(state[type].byId, id))

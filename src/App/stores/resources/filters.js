@@ -4,7 +4,7 @@ import t from './actions/constants'
 
 export const defaultState = {
   activeFilter: 'all',
-  activeList: 'all'
+  activeList: null
 };
 
 export default (type) => createReducer({
@@ -14,31 +14,30 @@ export default (type) => createReducer({
     if (type !== meta.type) {
       return state
     }
-
     return {
       ...state,
       activeFilter: term
     }
-  },
-
-  [t.SET_ACTIVE_LIST]: (state, {payload: term, meta}) => {
-    if (type !== meta.type) {
-      return state
-    }
-
-    return {
-      ...state,
-      activeList: term
-    }
-  },
-
-  [t.RESET_RESOURCE]: (state, {payload: entities, meta}) => {
-    if (type !== meta.type) {
-      return state
-    }
-
-    return defaultState;
   }
+
+  // [t.SET_ACTIVE_LIST]: (state, {payload: term, meta}) => {
+  //   if (type !== meta.type) {
+  //     return state
+  //   }
+  //
+  //   return {
+  //     ...state,
+  //     activeList: term
+  //   }
+  // },
+  //
+  // [t.RESET_RESOURCE]: (state, {payload: entities, meta}) => {
+  //   if (type !== meta.type) {
+  //     return state
+  //   }
+  //
+  //   return defaultState;
+  // }
 });
 
 

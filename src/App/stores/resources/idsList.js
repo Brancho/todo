@@ -102,7 +102,6 @@ export default (type) => createReducer({
   },
 
   [t.SET_ENTITY]: (state, {payload: { result }, meta}) => {
-    debugger;
     if (type !== meta.type || !result || !result[0]) {
       return state
     }
