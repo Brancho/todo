@@ -124,8 +124,10 @@ export default api
  */
 
 function createList (data) {
+  debugger
   return Object.assign({}, {
     id: v4(),
+    name: data.name,
     createdAt: new Date()
   }, data)
 }

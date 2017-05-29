@@ -1,4 +1,4 @@
-import _ from 'lodash'
+import _ from 'lodash';
 
 function getVal (val, caseFn) {
   if (_.isPlainObject(val)) return camelizeObj(val, caseFn)

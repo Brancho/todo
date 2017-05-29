@@ -15,6 +15,7 @@ export default (type) => createReducer({
 
   [t.FETCH_ENTITIES]: (state, { meta }) => {
     if (type !== meta.type || typeof meta.term === 'undefined') {
+      debugger;
       return state
     }
 

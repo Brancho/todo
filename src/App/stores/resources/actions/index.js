@@ -20,4 +20,7 @@ export const requestFailure = createAction('resources/REQUEST_FAILURE', p => p, 
 export const setCurrentPage = createAction('resources/SET_CURRENT_PAGE', p => p, (p, m) => m)
 export const setSearchTerm = createAction('resources/SET_SEARCH_TERM', p => p, (p, m) => m)
 
+export const setActiveFilter = createAction('resources/SET_ACTIVE_FILTER', p => p, (p, m) => m);
+export const setActiveList = createAction('resources/SET_ACTIVE_LIST', p => p, (p, m) => m);
+
 export const resetResource = createAction('resources/RESET_RESOURCE', p => p, (p, m) => m)

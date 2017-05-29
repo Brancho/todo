@@ -16,7 +16,6 @@ import * as schema from '../schema'
 export function* receiveResponse (response) {
   if (response.ok) {
     const todo = normalize(response.data.todo, schema.todo)
-
     yield put(actions.setEntity(todo, {type: 'todos'}))
   } else {
     const error = response.data.error

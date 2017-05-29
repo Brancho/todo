@@ -15,6 +15,7 @@ export default (type) => createReducer({
   initialState: defaultState,
 
   [t.SET_ENTITIES]: (state, {payload: { entities }}) => {
+
     if (isEmpty(entities[type])) {
       return state
     }
