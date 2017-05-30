@@ -12,14 +12,12 @@ import byId, * as fromById from './byId';
 import idsList, * as fromIdsList from './idsList';
 import status, * as fromStatus from './status';
 import pagination, * as fromPagination from './pagination';
-import filters, * as fromFilters from './filters';
 
 export default (type) => combineReducers({
   byId: byId(type),
   idsList: idsList(type),
   status: status(type),
-  pagination: pagination(type),
-  filters: filters(type),
+  pagination: pagination(type)
 });
 
 // Get one item in a state of this reducer
@@ -40,23 +38,21 @@ function getSelection(type, state, object){
 
   const listIds = ids.filter(function(id) {
     const todo = object[id];
-    return todo.listID === activeList;
-  });
-
+    return todo.listID === activeList
+  })
 
   return listIds.filter(function(id) {
     const todo = object[id];
     if (activeFilter === 'all') {
-      return true;
+      return true
     } else if (activeFilter === 'completed' && !!todo.completed) {
-      return true;
+      return true
     } else if (activeFilter === 'active' && !todo.completed) {
       return true
     } else {
       return false
     }
-  });
-
+  })
 }
 
 // Get all items in a state of this reducer

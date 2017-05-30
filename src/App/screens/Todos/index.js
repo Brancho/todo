@@ -48,8 +48,6 @@ Todos.propTypes = {
 }
 
 
-
-
 export default connect(
   state => ({
     todos: getEntities('todos')(state),
