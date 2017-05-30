@@ -10,7 +10,7 @@ function filter(state = initialState, action) {
     case 'SET_ACTIVE_FILTER':
       return { ...state, activeFilter: action.filter }
     case "SET_ACTIVE_LIST":
-      return { ...state, activeList: action.list, activeListName: action.name }
+      return { ...state, activeFilter: 'all', activeList: action.list, activeListName: action.name }
     default:
       return state;
   }

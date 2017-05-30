@@ -23,7 +23,8 @@ const Todos = ({ lists, todos, filters, addTodo, addList, toggleTodo, setFilter,
         addList(list)
         reset()
       }} />
-      <ListsList {...{ lists, setList, filters }}/>
+        <span className='f4 bold'>Lists</span>
+        <ListsList {...{ lists, setList, filters }}/>
       </div>
       <div className="fr w-70">
       <AddTodo onSubmit={({todo}, _, {reset}) => {
@@ -32,7 +33,7 @@ const Todos = ({ lists, todos, filters, addTodo, addList, toggleTodo, setFilter,
       }} />
       <div className="mw6 center">
       <span className='f4 bold'>{filters.activeListName ? filters.activeListName : 'Default List'}</span>
-      <Filter {...{setFilter}} />
+      <Filter {...{setFilter, filters}} />
       </div>
       <TodoList {...{ todos, toggleTodo }} />
       </div>
